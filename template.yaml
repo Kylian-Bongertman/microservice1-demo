@@ -36,23 +36,16 @@ Outputs:
     Description: "Stock Checker Function ARN"
     Value: !GetAtt StockCheckerFunction.Arn
     Export:
-      Name: StockCheckerFunctionArn
-
-  StockCheckerFunctionArnRole:
-    Description: Implicit IAM Role created for Hello World function
-    Value:
-      Fn::GetAtt:
-      - StockCheckerFunctionRole
-      - Arn
+      Name: !Join [ ":", [ !Ref "AWS::StackName", StockCheckerFunctionArn ] ]
 
   StockSellerFunctionArn:
     Description: "Stock Seller Function ARN"
     Value: !GetAtt StockSellerFunction.Arn
     Export:
-      Name: StockSellerFunctionArn
+      Name: !Join [ ":", [ !Ref "AWS::StackName", StockSellerFunctionArn ] ]
 
   StockBuyerFunctionArn:
     Description: "Stock Buyer Function ARN"
     Value: !GetAtt StockBuyerFunction.Arn
     Export:
-      Name: StockBuyerFunctionArn
+      Name: !Join [ ":", [ !Ref "AWS::StackName", StockBuyerFunctionArn ] ]
