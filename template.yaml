@@ -32,6 +32,11 @@ Resources:
         - x86_64
 
 Outputs:
+  Environment:
+    Value: !Select [2, !Split ["-", !Ref "AWS::StackName"]]
+    Export:
+      Name: microservice1-environment
+      
   StockCheckerFunctionArn:
     Description: "Stock Checker Function ARN"
     Value: !GetAtt StockCheckerFunction.Arn
