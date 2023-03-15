@@ -22,14 +22,14 @@ Resources:
       Architectures:
         - x86_64
 
-#  StockBuyerFunction:
-#    Type: AWS::Serverless::Function
-#    Properties:
-#      CodeUri: functions/stock_buyer/
-#      Handler: app.lambda_handler
-#      Runtime: python3.9
-#      Architectures:
-#        - x86_64
+  StockBuyerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/stock_buyer/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
 
 Outputs:
   StockCheckerFunctionArn:
@@ -44,8 +44,8 @@ Outputs:
     Export:
       Name: !Join [ ":", [ !Ref "AWS::StackName", StockSellerFunctionArn ] ]
 
- # StockBuyerFunctionArn:
- #   Description: "Stock Buyer Function ARN"
- #   Value: !GetAtt StockBuyerFunction.Arn
- #   Export:
- #     Name: !Join [ ":", [ !Ref "AWS::StackName", StockBuyerFunctionArn ] ]
+  StockBuyerFunctionArn:
+    Description: "Stock Buyer Function ARN"
+    Value: !GetAtt StockBuyerFunction.Arn
+    Export:
+      Name: !Join [ ":", [ !Ref "AWS::StackName", StockBuyerFunctionArn ] ]
